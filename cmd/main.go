@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 
@@ -18,19 +19,18 @@ func run() error {
 	flag.StringVar(&config.FilePath, "file", "", "Path to db file")
 	flag.StringVar(&config.Env, "env", "prod", "Environment { prod | dev }")
 	flag.BoolVar(&config.ReadOnlyMode, "r", true, "Prevent writes to the file")
+	flag.Parse()
 
 	// Exit if db file is empty
 	if config.FilePath == "" {
-		panic("ERRRRRRR")
+		fmt.Println("file cannot be empty. exiting...")
+		os.Exit(exitFail)
 	}
 
-	flag.Parse()
 	_, err := db.FileValid(config.FilePath)
 	if err != nil {
 		return err
 	}
-
-	
 
 	var app = server.Application{Cfg: config}
 	app.CreateServer()

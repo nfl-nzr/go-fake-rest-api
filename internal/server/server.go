@@ -11,12 +11,12 @@ type Config struct {
 	Port         int
 	FilePath     string
 	ReadOnlyMode bool
-	Env string
+	Env          string
 }
 
 type Application struct {
-	Cfg    Config
-	Router *gin.Engine
+	Cfg      Config
+	Router   *gin.Engine
 	Database db.Database
 }
 
@@ -30,7 +30,7 @@ func (a *Application) CreateServer() {
 	a.InitRoutes()
 }
 
-func (a *Application) InitDb () error {
+func (a *Application) InitDb() error {
 	// Handle db connections here
 	if err := a.Database.Connect(a.Cfg.FilePath); err != nil {
 		return err
