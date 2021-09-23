@@ -1,4 +1,7 @@
 # Fake Rest Server
+![Build](https://github.com/nfl-nzr/go-fake-rest-api/actions/workflows/go.yml/badge.svg)
+![Abandoned](https://www.repostatus.org/badges/latest/abandoned.svg)
+
 
 A fake rest server written in GO to serve data from json file. Dynamically creates the routes based on the objects in the JSON. Get the contents of a resource, get a particular content using it's id if the resource is a json array, append or replace a resource and delete a resource. If a static directory is specified the server can serve the static files from the directory.n.
 
@@ -23,6 +26,4 @@ make kill_server #kills the server
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## TODO
-
- - [ ] Tests
+## NOTE
