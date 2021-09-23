@@ -12,6 +12,7 @@ type Config struct {
 	FilePath     string
 	ReadOnlyMode bool
 	Env          string
+	StaticFiles string
 }
 
 type Application struct {

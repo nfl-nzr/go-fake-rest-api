@@ -43,6 +43,18 @@ func FileValid(path string) (fs.FileInfo, error) {
 	return fi, nil
 }
 
+func FolderValid (path string) error {
+	fi, err := os.Stat(path)
+	if err != nil {
+		return err
+	}
+	isDir := fi.IsDir()
+	if isDir {
+		return err
+	}
+	return nil 
+}
+
 func parseFile(dsn string) (*map[string]interface{}, error) {
 
 	jsonFile, err := os.Open(dsn)
